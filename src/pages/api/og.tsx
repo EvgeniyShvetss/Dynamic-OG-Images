@@ -10,6 +10,9 @@ export default async function handler(req: NextRequest) {
 	try {
 		let [topStories, lastUpdated] = await Promise.all([getTopStories(), getLastUpdated()]);
 
+		console.log(topStories);
+		
+
 		const date = new Date(lastUpdated);
 
 		lastUpdated = date.toLocaleString('en-US', {
