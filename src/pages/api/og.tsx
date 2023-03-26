@@ -7,10 +7,12 @@ export const config = {
 };
 
 export default async function handler(req: NextRequest) {
+	console.log(req, 'req');
+	
 	try {
 		let [topStories, lastUpdated] = await Promise.all([getTopStories(), getLastUpdated()]);
 
-		console.log(topStories);
+		// console.log(topStories);
 		
 
 		const date = new Date(lastUpdated);
@@ -28,10 +30,10 @@ export default async function handler(req: NextRequest) {
 			(
 				<div tw='bg-[#F6F6F0] text-black h-full w-full flex items-center justify-center'>
 					<div tw='flex flex-col justify-center items-center w-1/2 h-full'>
-						<img
+						{/* <img
 							src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/512px-Y_Combinator_logo.svg.png?20161016225220'
 							tw='h-32 w-32'
-						/>
+						/> */}
 						<p tw='text-xl'>Top Stories</p>
 						<p tw='text-lg -mt-4 text-[#828282]'>As of {lastUpdated} (PST)</p>
 					</div>
